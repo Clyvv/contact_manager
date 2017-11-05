@@ -1,0 +1,19 @@
+defmodule ContactManager.Phone do
+  use ContactManager.Web, :model
+
+  schema "phones" do
+    field :address, :string
+    belongs_to :contact, ContactManager.Contact, foreign_key: :contact_id
+
+    timestamps()
+  end
+
+  @doc """
+  Builds a changeset based on the `struct` and `params`.
+  """
+  def changeset(struct, params \\ %{}) do
+    struct
+    |> cast(params, [:address])
+    |> validate_required([:address])
+  end
+end

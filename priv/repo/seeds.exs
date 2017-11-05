@@ -1,11 +1,11 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     ContactManager.Repo.insert!(%ContactManager.SomeModel{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will halt execution if something goes wrong.
+alias ContactManager.{Repo, User, Title}
+
+[%{fullname: "Clive Mawoko", email: "cmawoko@gmail.com", password_hash: "clive", is_admin: true},
+ %{fullname: "Tino Maponda", email: "tmaponda@gmail.com", password_hash: "tino", is_admin: false}]
+|> Enum.map(fn user_data -> User.changeset(%User{}, user_data) end)
+|> Enum.each(fn changeset -> Repo.insert!(changeset) end)
+
+[%{title: "Mr"},
+%{title: "Mrs"}]
+|> Enum.map(fn title_data -> Title.changeset(%Title{}, title_data) end)
+|> Enum.each(fn changeset -> Repo.insert!(changeset) end)
