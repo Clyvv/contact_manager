@@ -15,5 +15,6 @@ defmodule ContactManager.Phone do
     struct
     |> cast(params, [:address])
     |> validate_required([:address])
+    |> assoc_constraint(:contact)
   end
 end

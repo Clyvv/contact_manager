@@ -1,7 +1,7 @@
 alias ContactManager.{Repo, User, Title}
 
-[%{fullname: "Clive Mawoko", email: "cmawoko@gmail.com", password_hash: "clive", is_admin: true},
- %{fullname: "Tino Maponda", email: "tmaponda@gmail.com", password_hash: "tino", is_admin: false}]
+[%{fullname: "Clive Mawoko", email: "cmawoko@gmail.com", password: "clive", is_admin: true},
+ %{fullname: "Tino Maponda", email: "tmaponda@gmail.com", password: "tino", is_admin: false}]
 |> Enum.map(fn user_data -> User.changeset(%User{}, user_data) end)
 |> Enum.each(fn changeset -> Repo.insert!(changeset) end)
 

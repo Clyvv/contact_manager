@@ -11,7 +11,7 @@ defmodule ContactManager.Contact do
     has_many :addresses, ContactManager.Address
     has_many :emails, ContactManager.Email
     has_many :phones, ContactManager.Phone
-    belongs_to :contact, ContactManager.User, foreign_key: :user_id
+    belongs_to :user, ContactManager.User, foreign_key: :user_id
     timestamps()
   end
 
@@ -22,5 +22,6 @@ defmodule ContactManager.Contact do
     struct
     |> cast(params, [:firstname, :lastname, :sex, :dob])
     |> validate_required([:firstname, :lastname, :sex, :dob])
+    |> assoc_constraint(:user)
   end
 end

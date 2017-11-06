@@ -17,6 +17,7 @@ defmodule ContactManager.Address do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:street, :zip, :city, :country])
-    |> validate_required([:street, :zip, :city, :country])
+    |> validate_required([:street, :city, :country])
+    |> assoc_constraint(:contact)
   end
 end
