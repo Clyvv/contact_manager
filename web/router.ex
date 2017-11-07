@@ -18,6 +18,7 @@ defmodule ContactManager.Router do
 
     get "/", PageController, :index
     resources "/users", UserController
+    resources "/titles", TitleController
   end
 
   # Other scopes may use custom stacks.

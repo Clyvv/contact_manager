@@ -1,0 +1,13 @@
+<h2>Show Title</h2>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @title.title %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: title_path(@conn, :edit, @title) %></span>
+<span><%= link "Back", to: title_path(@conn, :index) %></span>
