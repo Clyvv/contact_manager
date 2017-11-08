@@ -26,8 +26,9 @@
   </div>
 
   <div class="form-group">
+  
     <%= label contact, :sex, class: "control-label" %>
-    <%= text_input contact, :sex, class: "form-control" %>
+    <%= select contact, :sex, ["","MALE","FEMALE"], class: "form-control" %>
     <%= error_tag contact, :sex %>
   </div>
 
