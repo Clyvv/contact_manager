@@ -1,0 +1,6 @@
+<h2>Edit Contact</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: contact_path(@conn, :update, @contact), titles: @titles %>
+
+<span><%= link "Back", to: contact_path(@conn, :index) %></span>

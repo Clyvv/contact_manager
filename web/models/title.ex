@@ -4,6 +4,7 @@ defmodule ContactManager.Title do
   schema "titles" do
     field :title, :string
 
+    has_many :contacts, ContactManager.Contact
     timestamps()
   end
 
